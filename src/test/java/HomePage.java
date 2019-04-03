@@ -17,8 +17,7 @@ public class HomePage extends YouTube {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver",
-				".\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://www.youtube.com/");
 		driver.manage().window().maximize();
@@ -34,13 +33,17 @@ public class HomePage extends YouTube {
 			cssOfId("search").sendKeys(" ");
 			cssOfId("search-icon-legacy").click();
 			cssOfId("logo-icon-container").click();
-			List<WebElement> movieList=driver.findElements(By.id("img"));
-			if(cssOfId("img").isDisplayed()) {
-				movieList.add(cssOfId("img"));
-			}
-			cssOfId("search").sendKeys(movieList.toArray().length+" tane video var");
-		}
-		catch(Exception hata) {
+			/*
+			 * List<WebElement> movieList = driver.findElements(By.id("img")); if
+			 * (cssOfId("img").isDisplayed()) { movieList.add(cssOfId("img")); }
+			 * cssOfId("search").sendKeys(movieList.toArray().length + " tane video var");
+			 */
+
+			cssOfId("search").sendKeys("Hello world!");
+			cssOfId("search-icon-legacy").click();
+			cssOfXPath("//span[@class='title style-scope ytd-guide-entry-renderer']").click();
+			cssOfLinkText("Ayarlar").click();
+		} catch (Exception hata) {
 			cssOfId("search").sendKeys(hata.getMessage());
 		}
 	}
