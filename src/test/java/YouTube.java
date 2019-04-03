@@ -11,27 +11,26 @@ import java.util.Random;
 
 
 public abstract class YouTube {
-	Random random=new Random();
+	
 	protected WebDriver driver;	
 	
-	protected WebElement clickIslemiClass(String className)throws Exception {
+	protected WebElement cssOfClass(String className)throws Exception {
 		return driver.findElement(By.className(className));
 	}
 	
-	protected WebElement clickIslemiId(String id)throws Exception {
+	protected WebElement cssOfId(String id)throws Exception {
 		return driver.findElement(By.id(id));
 	}
 	
-	protected WebElement xPath(String path)throws Exception {
+	protected WebElement cssOfXPath(String path)throws Exception {
 		return driver.findElement(By.xpath(path));
 	}
 	
-	protected WebElement idAndClass(String id,String className)throws Exception {
-		return driver.findElement(By.id(id).className(className));
-	}	
-	
-	protected WebElement linkText(String text) {
+	protected WebElement cssOfLinkText(String text) {
 		return driver.findElement(By.linkText(text));
+	}
+	protected WebElement cssOfCssSelector(String selector) {
+		return driver.findElement(By.cssSelector(selector));
 	}
 	
 	protected void screenShot(String imageName) throws Exception {
